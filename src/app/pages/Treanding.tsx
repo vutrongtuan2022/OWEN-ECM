@@ -2,7 +2,10 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import img from "../../../constants/images/img";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+import { convertCoin } from "../../../common/func/convertCoin";
+import { Button } from "@/components/ui/button";
 const Treanding = () => {
   return (
     <section className="py-16 bg-gray-50">
@@ -13,7 +16,7 @@ const Treanding = () => {
             Discover what`s poular among our custumers right now.
           </p>
         </div>
-        <Tabs defaultValue="account" className="w-full">
+        <Tabs defaultValue="all" className="w-full">
           <div className="flex justify-center mb-8">
             <TabsList className="bg-white/80 backdrop-blur-sm">
               <TabsTrigger
@@ -21,19 +24,19 @@ const Treanding = () => {
                 className="!rounded-button whitespace-nowrap"
               >
                 All Prodducts
-              </TabsTrigger>{" "}
+              </TabsTrigger>
               <TabsTrigger
                 value="electronics"
                 className="!rounded-button whitespace-nowrap"
               >
                 Electronics
-              </TabsTrigger>{" "}
+              </TabsTrigger>
               <TabsTrigger
                 value="fashion"
                 className="!rounded-button whitespace-nowrap"
               >
                 Fashion
-              </TabsTrigger>{" "}
+              </TabsTrigger>
               <TabsTrigger
                 value="home"
                 className="!rounded-button whitespace-nowrap"
@@ -58,7 +61,31 @@ const Treanding = () => {
                   image: img.phuKientrangPhuc,
                 },
               ].map((item, index) => (
-                <Card key={index} className="overflow-hidden"></Card>
+                <Card key={index} className="overflow-hidden group">
+                  <div className="relative pt-[100%] overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt="Item image"
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <CardContent className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <div>
+                        <p className="text-sm text-gray-500">{item.category}</p>
+                        <h3 className="font-bold">{item.name}</h3>
+                      </div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <p className="text-lg font-bold text-indigo-500">
+                          {convertCoin(item.price)}
+                        </p>
+                      </div>
+                    </div>
+                    <Button className="w-full whitespace-nowrap bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer">
+                      continue
+                    </Button>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </TabsContent>

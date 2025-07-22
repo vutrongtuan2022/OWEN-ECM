@@ -5,6 +5,8 @@ import FreeShippingBanner from "./pages/FreeShippingBanner";
 import NewArrival from "./pages/NewArrival";
 import FeaturedCollection from "./pages/FeaturedCollection";
 import Treanding from "./pages/Treanding";
+import Testimonial from "./pages/Testimonial";
+import Footer from "./pages/Footer";
 export default function Home() {
   return (
     <div>
@@ -14,6 +16,8 @@ export default function Home() {
       <NewArrival />
       <FeaturedCollection />
       <Treanding />
+      <Testimonial />
+      <Footer />
     </div>
   );
 }
