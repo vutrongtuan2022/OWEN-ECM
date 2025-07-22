@@ -108,8 +108,7 @@ export default function Home() {
       <Featured />
       <FreeShippingBanner />
       <NewArrival />
-      <FeaturedCollection />
-      a
+      <FeaturedCollection />a
     </div>
   );
 }
