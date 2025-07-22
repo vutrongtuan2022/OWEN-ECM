@@ -44,7 +44,7 @@ function HeroSection() {
           className="relative w-full h-96 md:h-[-500px]"
         >
           <Image
-            src={img.bannerImg}
+            src={img.bannerImg.src}
             alt="banner"
             fill
             className="object-cover rounded-xl shadow-md"

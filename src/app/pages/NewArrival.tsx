@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { convertCoin } from "../../../common/func/convertCoin";
+import Image from "next/image";
 
 function NewArrival() {
   return (
@@ -43,8 +44,8 @@ function NewArrival() {
             <SwiperSlide key={item.id}>
               <Card className="h-full group overflow-hidden">
                 <div className="relative overflow-hidden pt-[100%]">
-                  <img
-                    src={item.image.src}
+                  <Image
+                    src={item.image}
                     alt={item.name}
                     className="absolute inset-0 w-full h-full
                     object-cover transition-transform duration-500 group-hover:scale-110"
